@@ -2,9 +2,12 @@ package com.qa.hwaproject.services;
 
 
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.qa.hwaproject.domain.Pokemon;
+import com.qa.hwaproject.exceptions.PokemonNotFoundExceptionWithName;
 import com.qa.hwaproject.repos.PokemonRepo;
 
 
@@ -35,14 +38,14 @@ public class PokemonService {
 	
 
 	public Pokemon getById(long id){
-		return repo.findById(id).orElseThrow();
+		return repo.findById (id).orElseThrow(() -> new PokemonNotFoundExceptionWithID(id));
 	
 	public List<Pokemon> getByType(String type){
 		return repo.findByType(type);
 	}
 	public Pokemon getByName(String name){
 //		return repo.findByName(name).orElseThrow(PokemonNotFoundException::new);
-		return name;
+		return repo.findByName(name).orElseThrow(() -> new PokemonNotFoundExceptionWithName(name));
 	}
 	
 	public List<Pokemon> getByMoveOne(String moveOne){

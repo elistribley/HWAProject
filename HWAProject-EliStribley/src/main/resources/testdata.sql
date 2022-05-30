@@ -1,0 +1,1 @@
+INSERT INTO `pokemon` (`name`, `type`, `move_one`, `move_two`, `height`) VALUES ('Riolu', 'Fighting', 'Cross Chop', 'Tackle', 90);

@@ -9,7 +9,7 @@ import com.qa.hwaproject.exceptions.PokemonNotFoundExceptionWithID;
 import com.qa.hwaproject.exceptions.PokemonNotFoundExceptionWithName;
 import com.qa.hwaproject.repos.PokemonRepo;
 
-@Service
+
 public class PokemonService {
 
 	private PokemonRepo repo;

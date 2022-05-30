@@ -1,5 +1,7 @@
 package com.qa.hwaproject.domain;
 
+
+
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,11 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
-
-
-
-
-
 
 
 //                  ------- DECIDED AGAINST USING LOMBOK ------
@@ -67,9 +64,6 @@ public class Pokemon {
 
 	}
 	
-	public Pokemon() {
-	}
-
 	public Pokemon(long id) {
 		super();
 	}

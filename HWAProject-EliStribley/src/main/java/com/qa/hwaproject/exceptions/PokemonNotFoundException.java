@@ -7,6 +7,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Pokemon does not exist with that name")
 public class PokemonNotFoundException extends NoSuchElementException {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 727661396711590550L;
+
 
 	
 	

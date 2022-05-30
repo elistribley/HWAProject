@@ -20,7 +20,7 @@ public class PokemonService {
     }
 
 	
-	//CREATE - Post Requestg
+	//CREATE - Post Request
 
 	public Pokemon create(Pokemon pokemon) {
 		return this.repo.saveAndFlush(pokemon);

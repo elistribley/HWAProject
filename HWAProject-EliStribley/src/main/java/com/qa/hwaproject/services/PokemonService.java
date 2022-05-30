@@ -1,0 +1,87 @@
+package com.qa.hwaproject.services;
+
+
+
+import org.springframework.stereotype.Service;
+
+import com.qa.hwaproject.domain.Pokemon;
+import com.qa.hwaproject.repos.PokemonRepo;
+
+
+@Service
+public class PokemonService {
+
+	private PokemonRepo repo;
+
+    public PokemonService(PokemonRepo repo) {
+        super();
+        this.repo = repo;
+    }
+
+    
+	
+	//CREATE - Post Requestg
+
+	public Pokemon create(Pokemon pokemon) {
+		return this.repo.saveAndFlush(pokemon);
+	}
+    
+
+	//READ - GET REQUEST ALL AND ID
+	
+	public List<Pokemon> getAll(){
+		return repo.findAll();
+	}
+	
+
+	public Pokemon getById(long id){
+		return repo.findById(id).orElseThrow();
+	
+	public List<Pokemon> getByType(String type){
+		return repo.findByType(type);
+	}
+	public Pokemon getByName(String name){
+//		return repo.findByName(name).orElseThrow(PokemonNotFoundException::new);
+		return name;
+	}
+	
+	public List<Pokemon> getByMoveOne(String moveOne){
+		return repo.findByMoveOne(moveOne);
+	}
+	
+	public List<Pokemon> getByMoveTwo(String moveTwo){
+		return repo.findByMoveTwo(moveTwo);
+	}
+	
+	public Pokemon getByTypeAndMoveOne(String type, String moveOne){
+		return repo.findByTypeAndMoveOne(type, moveOne).get();
+	}
+	
+	
+	//UPDATE - Put/Patch Request
+
+	public Pokemon update(long id, Pokemon pokemon) {
+		//Get existing entry
+		Pokemon existing = repo.findById(id).get();
+		//Update existing entry using the new object
+		existing.setName(pokemon.getName());
+		existing.setType(pokemon.getType());
+		existing.setMoveOne(pokemon.getMoveOne());
+		existing.setMoveTwo(pokemon.getMoveTwo());
+		
+		return repo.saveAndFlush(existing);
+		
+	
+	}
+	
+
+	//DELETE - Delete Request
+
+	public boolean delete(long id) {
+		repo.deleteById(id);
+		return !repo.existsById(id);
+		
+	}
+	
+	
+}

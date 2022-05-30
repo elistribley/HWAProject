@@ -1,0 +1,137 @@
+package com.qa.hwaproject.domain;
+
+import java.util.Objects;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Size;
+
+
+
+
+
+@Entity
+
+//                  ------- DECIDED AGAINST USING LOMBOK ------
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Getter
+//@Setter
+//@Data
+//@EqualsAndHashCode
+public class Pokemon {
+	
+	@Id //WILL BE PRIMARY KEY - UNIQUE AND NOT NULL
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	public long id;
+	
+	
+	@Column(name = "name", nullable = false, unique = true)
+	@Size(min = 2, max = 20)
+	private String name;
+	
+	@Column(name = "type", nullable = false)
+	@Size(min = 2, max = 20)
+	private String type;
+	
+	@Column(name = "moveone", nullable = false)
+	@Size(min = 2, max = 20)
+	private String moveOne;
+	
+	@Column(name = "movetwo", nullable = false)
+	@Size(min = 2, max = 20)
+	private String moveTwo;
+	
+
+	//CONSTRUCTORS USED TO INSTANTIATE VARIBLES
+	
+	public Pokemon(long id, String name, String type, String moveOne, String moveTwo, long height) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.type = type;
+		this.moveOne = moveOne;
+		this.moveTwo = moveTwo;
+	}
+
+	public Pokemon(String name, String type, String moveOne, String moveTwo,
+			long height) {
+		super();
+		this.name = name;
+		this.type = type;
+		this.moveOne = moveOne;
+		this.moveTwo = moveTwo;
+
+	}
+	
+	public Pokemon(long id) {
+		super();
+	}
+
+	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public String getMoveOne() {
+		return moveOne;
+	}
+
+	public void setMoveOne(String moveOne) {
+		this.moveOne = moveOne;
+	}
+
+	public String getMoveTwo() {
+		return moveTwo;
+	}
+
+	public void setMoveTwo(String moveTwo) {
+		this.moveTwo = moveTwo;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, name, type, moveOne, moveTwo);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Pokemon other = (Pokemon) obj;
+		return  Objects.equals(id, other.id)
+				&& Objects.equals(moveOne, other.moveOne) && Objects.equals(moveTwo, other.moveTwo)
+				&& Objects.equals(name, other.name) && Objects.equals(type, other.type);
+	}
+
+
+	
+}

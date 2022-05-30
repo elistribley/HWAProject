@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 
 
 
-@Entity
+
 
 //                  ------- DECIDED AGAINST USING LOMBOK ------
 //@AllArgsConstructor
@@ -22,6 +22,7 @@ import javax.validation.constraints.Size;
 //@Setter
 //@Data
 //@EqualsAndHashCode
+@Entity
 public class Pokemon {
 	
 	@Id //WILL BE PRIMARY KEY - UNIQUE AND NOT NULL
@@ -48,7 +49,7 @@ public class Pokemon {
 
 	//CONSTRUCTORS USED TO INSTANTIATE VARIBLES
 	
-	public Pokemon(long id, String name, String type, String moveOne, String moveTwo, long height) {
+	public Pokemon(long id, String name, String type, String moveOne, String moveTwo) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -57,8 +58,7 @@ public class Pokemon {
 		this.moveTwo = moveTwo;
 	}
 
-	public Pokemon(String name, String type, String moveOne, String moveTwo,
-			long height) {
+	public Pokemon(String name, String type, String moveOne, String moveTwo) {
 		super();
 		this.name = name;
 		this.type = type;
@@ -67,11 +67,12 @@ public class Pokemon {
 
 	}
 	
+	public Pokemon() {
+	}
+
 	public Pokemon(long id) {
 		super();
 	}
-
-	
 
 	public long getId() {
 		return id;

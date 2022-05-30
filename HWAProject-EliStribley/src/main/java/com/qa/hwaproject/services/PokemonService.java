@@ -1,7 +1,5 @@
 package com.qa.hwaproject.services;
 
-
-
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -10,7 +8,6 @@ import com.qa.hwaproject.domain.Pokemon;
 import com.qa.hwaproject.exceptions.PokemonNotFoundExceptionWithID;
 import com.qa.hwaproject.exceptions.PokemonNotFoundExceptionWithName;
 import com.qa.hwaproject.repos.PokemonRepo;
-
 
 @Service
 public class PokemonService {
@@ -22,7 +19,6 @@ public class PokemonService {
         this.repo = repo;
     }
 
-    
 	
 	//CREATE - Post Requestg
 
@@ -45,7 +41,6 @@ public class PokemonService {
 		return repo.findByType(type);
 	}
 	public Pokemon getByName(String name){
-//		return repo.findByName(name).orElseThrow(PokemonNotFoundException::new);
 		return repo.findByName(name).orElseThrow(() -> new PokemonNotFoundExceptionWithName(name));
 	}
 	
@@ -65,9 +60,7 @@ public class PokemonService {
 	//UPDATE - Put/Patch Request
 
 	public Pokemon update(long id, Pokemon pokemon) {
-		//Get existing entry
 		Pokemon existing = repo.findById(id).get();
-		//Update existing entry using the new object
 		existing.setName(pokemon.getName());
 		existing.setType(pokemon.getType());
 		existing.setMoveOne(pokemon.getMoveOne());
@@ -75,9 +68,7 @@ public class PokemonService {
 		
 		return repo.saveAndFlush(existing);
 		
-	
 	}
-	
 
 	//DELETE - Delete Request
 

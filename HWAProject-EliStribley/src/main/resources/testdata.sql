@@ -1,1 +1,1 @@
-INSERT INTO `pokemon` (`name`, `type`, `move_one`, `move_two`, `height`) VALUES ('Butterfree', 'Bug, 'Confusion', 'Tackle', 60);
+INSERT INTO `pokemon` (`name`, `type`, `move_one`, `move_two`) VALUES ('Butterfree', 'Bug, 'Confusion', 'Tackle');

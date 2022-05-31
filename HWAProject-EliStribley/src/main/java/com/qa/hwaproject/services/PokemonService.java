@@ -2,6 +2,7 @@ package com.qa.hwaproject.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.qa.hwaproject.domain.Pokemon;
@@ -9,13 +10,13 @@ import com.qa.hwaproject.exceptions.PokemonNotFoundExceptionWithID;
 import com.qa.hwaproject.exceptions.PokemonNotFoundExceptionWithName;
 import com.qa.hwaproject.repos.PokemonRepo;
 
-
+@Service
 public class PokemonService {
 
+	
 	private PokemonRepo repo;
 
     public PokemonService(PokemonRepo repo) {
-        super();
         this.repo = repo;
     }
 
@@ -27,7 +28,7 @@ public class PokemonService {
 	}
     
 
-	//READ - GET REQUEST ALL AND ID
+	//READ - GET REQUEST ALL ETC
 	
 	public List<Pokemon> getAll(){
 		return repo.findAll();

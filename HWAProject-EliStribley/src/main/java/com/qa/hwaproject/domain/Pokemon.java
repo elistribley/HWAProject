@@ -64,9 +64,11 @@ public class Pokemon {
 
 	}
 	
-	public Pokemon(long id) {
+	public Pokemon() {
 		super();
 	}
+	
+
 
 	public long getId() {
 		return id;

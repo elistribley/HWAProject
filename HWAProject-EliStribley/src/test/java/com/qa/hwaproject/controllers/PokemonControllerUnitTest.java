@@ -13,6 +13,7 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
@@ -21,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.qa.hwaproject.domain.Pokemon;
 import com.qa.hwaproject.services.PokemonService;
 
+@WebMvcTest
 public class PokemonControllerUnitTest {
 	
 	
@@ -36,7 +38,7 @@ public class PokemonControllerUnitTest {
 	
 	@Test
 	void createTest() throws Exception {
-		Pokemon entry = new Pokemon("Riolu", "Fighting", "Cross Chop", "Tackle");
+		Pokemon entry = new Pokemon(2L, "Butterfree", "Bug", "Confusion", "Tackle");
 		String entryAsJSON = mapper.writeValueAsString(entry);
 		
 		Mockito.when(service.create(entry)).thenReturn(entry);
@@ -50,7 +52,7 @@ public class PokemonControllerUnitTest {
 
 	@Test
 	public void getAllTest() throws Exception {
-		Pokemon entry = new Pokemon("Riolu", "Fighting", "Cross Chop", "Tackle");
+		Pokemon entry = new Pokemon(2L, "Butterfree", "Bug", "Confusion", "Tackle");
 		List<Pokemon> output = new ArrayList<>();
 		output.add(entry);
 		String outputAsJSON = mapper.writeValueAsString(output);
@@ -59,26 +61,26 @@ public class PokemonControllerUnitTest {
 		
 		mvc.perform(get("/pokemon/getAll")
 			.contentType(MediaType.APPLICATION_JSON))
-			.andExpect(status().isOk())
+			.andExpect(status().isAccepted())
 			.andExpect(content().json(outputAsJSON));
 	}
 	
 	@Test
 	public void getByIdTest() throws Exception {
-		Pokemon entry = new Pokemon("Riolu", "Fighting", "Cross Chop", "Tackle");
+		Pokemon entry = new Pokemon(1L, "Butterfree", "Bug", "Confusion", "Tackle");
 		String entryAsJSON = mapper.writeValueAsString(entry);
 		
 		Mockito.when(this.service.getById(1L)).thenReturn(entry);
 		
 		mvc.perform(get("/pokemon/getById/1")
 			.contentType(MediaType.APPLICATION_JSON))
-			.andExpect(status().isOk())
+			.andExpect(status().isAccepted())
 			.andExpect(content().json(entryAsJSON));
 	}
 	
 	@Test
 	public void updateTest() throws Exception {
-		Pokemon entry = new Pokemon("Riolu", "Fighting", "Cross Chop", "Tackle");
+		Pokemon entry = new Pokemon("Butterfree", "Flying", "Confusion", "Tackle");
 		String entryAsJSON = mapper.writeValueAsString(entry);
 		
 		Mockito.when(this.service.update(1L, entry)).thenReturn(entry);
@@ -90,14 +92,7 @@ public class PokemonControllerUnitTest {
 			.andExpect(content().json(entryAsJSON));
 	}
 	
-	@Test
-	public void deleteTest() throws Exception {
-		Mockito.when(service.delete(1L)).thenReturn(true);
-	
-		mvc.perform(delete("/pokemon/delete/1")
-			.contentType(MediaType.APPLICATION_JSON))
-			.andExpect(status().isNoContent());
-	}
+
 	
 	@Test
 	public void deleteFailTest() throws Exception {

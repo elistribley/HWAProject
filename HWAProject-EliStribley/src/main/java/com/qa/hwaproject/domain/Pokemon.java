@@ -29,7 +29,7 @@ public class Pokemon {
 	
 	@Column(name = "name", nullable = false, unique = true)
 	@Size(min = 2, max = 20)
-	private String name;
+	private String name = "Squirtle";
 	
 	@Column(name = "type", nullable = false)
 	@Size(min = 2, max = 20)
@@ -43,7 +43,9 @@ public class Pokemon {
 	@Size(min = 2, max = 20)
 	private String moveTwo;
 	
-
+	//@Column(name="img", nullable = true)
+	//private String url = "";
+	
 	//CONSTRUCTORS USED TO INSTANTIATE VARIBLES
 	
 	public Pokemon(long id, String name, String type, String moveOne, String moveTwo) {

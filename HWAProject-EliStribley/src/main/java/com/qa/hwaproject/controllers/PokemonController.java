@@ -94,7 +94,6 @@ public class PokemonController {
 	//DELETE - Delete Request - @DeleteMapping
 	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Boolean> delete(@PathVariable long id) {
-		
 		return service.delete(id) ? new ResponseEntity<Boolean>(service.delete(id), HttpStatus.NO_CONTENT): new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			
 	}

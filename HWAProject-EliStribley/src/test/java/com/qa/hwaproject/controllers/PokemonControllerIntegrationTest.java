@@ -10,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -76,6 +77,68 @@ public class PokemonControllerIntegrationTest {
 			.andExpect(status().isAccepted())
 			.andExpect(content().json(entryAsJSON));
 	}
+	@Test
+	public void getByNameTest() throws Exception {
+		Pokemon entry = new Pokemon(1L,"Butterfree", "Bug", "Confusion", "Tackle");
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+		
+		mvc.perform(get("/pokemon/getByName/Butterfree")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isAccepted())
+			.andExpect(content().json(entryAsJSON));
+	}
+	@Test
+	public void getByTypeTest() throws Exception {
+		Pokemon pokemon = new Pokemon(1L,"Butterfree", "Bug", "Confusion", "Tackle");
+		List<Pokemon> output = new ArrayList<>();
+		output.add(pokemon);
+		
+		String outputAsJSON = mapper.writeValueAsString(output);
+		
+		mvc.perform(get("/pokemon/getByType/Bug")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isAccepted())
+			.andExpect(content().json(outputAsJSON));
+	}
+	@Test
+	public void getByMoveOneTest() throws Exception {
+		Pokemon pokemon = new Pokemon(1L,"Butterfree", "Bug", "Confusion", "Tackle");
+		List<Pokemon> output = new ArrayList<>();
+		output.add(pokemon);
+		
+		String outputAsJSON = mapper.writeValueAsString(output);
+		
+		mvc.perform(get("/pokemon/getByMoveOne/Confusion")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isAccepted())
+			.andExpect(content().json(outputAsJSON));
+	}
+	@Test
+	public void getByMoveTwoTest() throws Exception {
+		Pokemon pokemon = new Pokemon(1L,"Butterfree", "Bug", "Confusion", "Tackle");
+		List<Pokemon> output = new ArrayList<>();
+		output.add(pokemon);
+		
+		String outputAsJSON = mapper.writeValueAsString(output);
+		
+		mvc.perform(get("/pokemon/getByMoveTwo/Tackle")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isAccepted())
+			.andExpect(content().json(outputAsJSON));
+	}
+	
+	@Test
+	@Disabled
+	public void getByTypeAndMoveOneTest() throws Exception {
+		Pokemon entry = new Pokemon(1L,"Butterfree", "Bug", "Confusion", "Tackle");
+		String entryAsJSON = this.mapper.writeValueAsString(entry);
+		
+		mvc.perform(get("/pokemon/getByTypeAndMoveOne/Bug, Confusion")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isAccepted())
+			.andExpect(content().json(entryAsJSON));
+	}
+	
 	
 	@Test
 	public void updateTest() throws Exception {
@@ -93,9 +156,10 @@ public class PokemonControllerIntegrationTest {
 	}
 	
 	@Test
+	@Disabled
 	public void deleteTest() throws Exception {
 		
-		mvc.perform(delete("/pokemon/delete/1")
+		mvc.perform(delete("/pokemon/delete/2")
 			.contentType(MediaType.APPLICATION_JSON))
 			.andExpect(status().isNoContent());
 	}

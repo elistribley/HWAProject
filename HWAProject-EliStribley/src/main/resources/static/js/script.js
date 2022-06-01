@@ -14,7 +14,7 @@ let putBtn = document.querySelector("#put");
 let deleteBtn = document.querySelector("#delete");
 
 
-let add = () => {
+/*let add = () => {
     let valueOne = inputOne.value;
     let valueTwo = inputTwo.value;
     let valueThree = inputThree.value;
@@ -25,7 +25,7 @@ let add = () => {
 
     valueOneDiv.appendChild(myValue);
     resultsDiv.appendChild(valueOneDiv);
-}
+}*/
 
 
 

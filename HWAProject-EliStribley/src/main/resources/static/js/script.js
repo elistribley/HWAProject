@@ -30,17 +30,16 @@ let deleteBtn = document.querySelector("#delete");
 
 
 let creReq = () => {
-
     let obj = {
         "name":inputOne.value,
         "type":inputTwo.value,
         "moveOne":inputThree.value,
         "moveTwo":inputFour.value
     }
-    axios.post("https://localhost:8999/pokemon/create", obj)
+    axios.post("http://localhost:8999/pokemon/create", obj)
         .then((response) => {
             
-            displayResult(response.data);
+            getReq();
         } )
         .catch((error) => {
             console.error(error);
@@ -51,33 +50,49 @@ let creReq = () => {
 
 
 let getReq = () => {
-    axios.get("https://localhost:8999/pokemon/getAll")
+    resultsDiv.innerHTML="";
+    axios.get("http://localhost:8999/pokemon/getAll")
         .then((response) => {
+            displayResults(response.data);
+  
+            getAll();
             
-            displayResult(response.data);
         } )
         .catch((error) => {
             console.error(error);
         });
     }
 
+let getIdReq = (getById) => {
+    axios.get(`https://localhost:8999/pokemon/getById/${id.value}`)
+    .then((response) => {
+        id="";
+        name="";
+        type="";
+        moveOne="";
+        moveTwo="";
+        displayResults;
+    })
+    .catch((error)=>{
+        console.error(error);
+    })
+}
 
-
-let updReq = () => {
-    axios.put("https://localhost:8999/pokemon/update")
+let updReq = (id) => {
+    axios.get(`http://localhost:8999/pokemon/getById/${id}`)
+    axios.put(`http://localhost:8999/pokemon/update/${id}`)
         .then((response) => {
-            
-            console.log(response);
-        } )
-        .catch((error) => {
+            displayResults(response);
+            getReq();
+        }).catch((error)=>{
             console.error(error);
-        });
-    }
-let delReq = () => {
-    axios.delete("https://localhost:8999/pokemon/delete")
+        })
+}
+let delReq = (id) => {
+    axios.delete(`http://localhost:8999/pokemon/delete/${id}`)
         .then((response) => {
             
-            console.log(response);
+            getReq();
         } )
         .catch((error) => {
             console.error(error);
@@ -87,16 +102,17 @@ let delReq = () => {
 
 
 let displayResults = (data) => {
+    getReq.innerHTML="";
     for (let entry of data) {
         const p = document.createElement("p");
         const text = document.createTextNode(`${entry.id} | Name: ${entry.name} | Type: ${entry.type} | Move One: ${entry.moveOne} | Move Two: ${entry.moveTwo}`);
 
-        p.appendChild(text);
+        p.appendChild(text)
         resultsDiv.appendChild(p);
     }
 }  
 
-    getBtn.addEventListener("click", creReq);
-    postBtn.addEventListener("click", getReq);
+    postBtn.addEventListener("click", creReq);
+    getBtn.addEventListener("click", getReq);
     putBtn.addEventListener("click", updReq);
     deleteBtn.addEventListener("click", delReq);

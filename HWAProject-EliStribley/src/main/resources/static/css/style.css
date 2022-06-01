@@ -1,10 +1,29 @@
+body {
+    background-color:azure;
+    background-size: cover;
+    background-repeat: no-repeat;
+   }
 
 
 #header{
     text-align: center;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    border-width: 5px;
+    border-color: white;
+    padding: 70px;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-image: url(https://th.bing.com/th/id/R.98ec56b29ec48b33d6e2eb73040b1611?rik=ey3U800DANr4Ow&pid=ImgRaw&r=0);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 5%;
 }
-
+#inputZero{
+    width: 295px;
+}
 #inputOne{
     width: 295px;
 }
@@ -16,4 +35,89 @@
 }
 #inputFour{
     width: 295px;
+}
+
+#intro{
+    border: 2px solid darkred;
+    align-self: left;
+    padding-bottom: 20vw;
+    margin-right: 80vw;
+    border-width: 0.3vw;
+    border-radius: 10px;
+}
+
+#resultDiv{
+    
+    border: 2px solid darkred;
+    border-width: 0.3vw;
+    padding: 150px;
+    margin-top: -20vw;
+    margin-left: 24vw;
+    margin-right: 24vw;
+    height: fit-content;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 10px;
+    text-align: left;
+    color: darkred;
+    
+}
+
+#createDiv{
+    margin-left: 30vw;
+    margin-right: 25vw;
+    
+}
+#updateForm{
+    margin-top: -8vw;
+    margin-left: 30vw;
+    margin-right: 25vw;
+}
+
+img{
+    float: right;
+    margin-top: -22vw;
+    margin-right: 5vw;
+}
+
+#post{
+    background-color: white;
+    color: darkred;
+    border-color: darkred;
+    border-radius: 10px;
+    border-width: 0.1vw;
+}
+#get{
+    background-color: white;
+    color: darkred;
+    border-color: darkred;
+    border-radius: 10px;
+    border-width: 0.5vw;
+    margin-top: -5vw;
+    margin-left: 17.7vw;
+    padding: 1vw;
+}
+#put{
+    background-color: white;
+    color: darkred;
+    border-color: darkred;
+    border-radius: 10px;
+    border-width: 0.1vw;
+}
+#delete{
+    background-color: white;
+    color: darkred;
+    border-color: darkred;
+    border-radius: 10px;
+    border-width: 0.1vw;
+}
+#headerOne{
+    
+    float: left !important;
+    text-align: center !important;
+}
+#headerTwo{
+    float: right !important;
+    text-align: center !important;
 }

@@ -57,6 +57,7 @@ let getReq = () => {
   
             getAll();
             
+            
         } )
         .catch((error) => {
             console.error(error);
@@ -64,7 +65,7 @@ let getReq = () => {
     }
 
 let getIdReq = (getById) => {
-    axios.get(`https://localhost:8999/pokemon/getById/${id.value}`)
+    axios.get(`http://localhost:8999/pokemon/getById/${id.value}`)
     .then((response) => {
         id="";
         name="";
@@ -78,7 +79,7 @@ let getIdReq = (getById) => {
     })
 }
 
-let updReq = (id) => {
+let updReq = () => {
     axios.get(`http://localhost:8999/pokemon/getById/${id}`)
     axios.put(`http://localhost:8999/pokemon/update/${id}`)
         .then((response) => {
@@ -88,7 +89,7 @@ let updReq = (id) => {
             console.error(error);
         })
 }
-let delReq = (id) => {
+let delReq = () => {
     axios.delete(`http://localhost:8999/pokemon/delete/${id}`)
         .then((response) => {
             

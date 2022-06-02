@@ -19,26 +19,18 @@
             <div id="headerOne"><h1>Welcome to</h1></div><div id="headerTwo"><h1>Eli's Pokedex!</h1></div>
         </div>
 
+        <div>
+            <button id="get" type="button" class="btn btn-warning">Read</button>
+        </div>
     <div id="createDiv">
-        <form class="form" action="post">
-        <button id="post" type="button" class="btn btn-success">Create</button>
-        <button id="delete" type="button" class="btn btn-success">Delete</button>
-            <br/>
-            <input name="query" id="inputOne" type="text" placeholder="Name">
-            <br/>
-            <input name="query" id="inputTwo" type="text" placeholder="Type">
-            <br/>
-            <input name="query" id="inputThree" type="text" placeholder="Move One">
-            <br/>
-            <input name="query" id="inputFour" type="text" placeholder="Move Two">
-        </form>
-        <button id="get" type="button" class="btn btn-success">Read</button>
         <form id="updateForm" class="form" action="post">
         
+            <button id="post" type="button" class="btn btn-success">Create</button>
+            <button id="delete" type="button" class="btn btn-success">Delete</button>
             <button id="put" type="button" class="btn btn-success">Update</button>
             
                 <br/>
-                <input name="query" id="inputZero" type="text" placeholder="ID">
+                <input name="query" id="inputZero" type="text" placeholder="ID - Only needed for update and delete...">
                 <br/>
                 <input name="query" id="inputOne" type="text" placeholder="Name">
                 <br/>

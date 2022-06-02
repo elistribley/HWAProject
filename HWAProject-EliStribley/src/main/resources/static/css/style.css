@@ -59,20 +59,18 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     border-radius: 10px;
-    text-align: left;
     color: darkred;
     
 }
 
-#createDiv{
-    margin-left: 30vw;
-    margin-right: 25vw;
-    
-}
+
 #updateForm{
-    margin-top: -8vw;
-    margin-left: 30vw;
-    margin-right: 25vw;
+    border: 2px solid darkred;
+    border-width: 2px;
+    width: fit-content;
+    border-radius: 0.5vw;
+    border-width: 0.3vw;
+    margin: auto;
 }
 
 img{
@@ -94,9 +92,7 @@ img{
     border-color: darkred;
     border-radius: 10px;
     border-width: 0.5vw;
-    margin-top: -5vw;
-    margin-left: 17.7vw;
-    padding: 1vw;
+    margin-left: 48vw;
 }
 #put{
     background-color: white;

@@ -1,6 +1,8 @@
 package com.qa.hwaproject.services;
 
-import static org.junit.Assert.assertEquals;
+
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,11 +32,11 @@ public class PokemonServiceTest {
 		Pokemon input = new Pokemon("Butterfree", "Bug", "Confusion", "Tackle");
 		Pokemon output = new Pokemon(1L, "Butterfree", "Bug", "Confusion", "Tackle");
 
-		Mockito.when(repo.saveAndFlush(output)).thenReturn(output);
+		Mockito.when(repo.saveAndFlush(input)).thenReturn(output);
 
-		assertEquals(output, service.create(output));
+		assertEquals(output, service.create(input));
 
-		Mockito.verify(repo, Mockito.times(1)).saveAndFlush(output);
+		Mockito.verify(repo, Mockito.times(1)).saveAndFlush(input);
 	}
 
 	// Read all Test
@@ -95,7 +97,7 @@ public class PokemonServiceTest {
 	@Test
 	public void deleteTest() {
 		final long Id = 1L;
-		Mockito.when(repo.existsById(Id)).thenReturn(true);
+		Mockito.when(repo.existsById(Id)).thenReturn(false);
 
 		assertEquals(true, service.delete(1L));
 

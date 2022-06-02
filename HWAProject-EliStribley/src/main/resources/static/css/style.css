@@ -40,11 +40,12 @@ body {
 #introDiv{
     border: 2px solid darkred;
     align-self: left;
-    padding-bottom: 20vw;
+    padding-bottom: 10vw;
     margin-top: -5vw;
-    margin-right: 80vw;
+    margin-right: 78vw;
     border-width: 0.3vw;
     border-radius: 10px;
+    color: darkred;
 }
 
 #resultDiv{
@@ -119,3 +120,19 @@ img{
     text-align: center !important;
 }
 
+#footerDiv{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+    border: 2px solid white;
+    border-radius: 5px;
+    border-width: 5px;
+    border-color: white;
+    padding: 70px;
+    margin-left: 20%;
+    margin-right: 20%;
+    background-image: url(https://th.bing.com/th/id/R.98ec56b29ec48b33d6e2eb73040b1611?rik=ey3U800DANr4Ow&pid=ImgRaw&r=0);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 5%;
+}

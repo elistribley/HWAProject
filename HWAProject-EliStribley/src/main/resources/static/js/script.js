@@ -121,6 +121,8 @@ let displayResults = (data) => {
     }
 }  
 
+
+
     postBtn.addEventListener("click", creReq);
     getBtn.addEventListener("click", getReq);
     putBtn.addEventListener("click", updReq);

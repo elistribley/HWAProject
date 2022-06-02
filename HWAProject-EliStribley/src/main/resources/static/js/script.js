@@ -1,7 +1,9 @@
 'use strict';
 
 let resultsDiv = document.querySelector("#resultDiv");
+let introDiv = document.querySelector("#introDiv")
 
+let idDiv = document.querySelector('#inputZero');
 let nameDiv = document.querySelector("#inputOne");
 let typeDiv = document.querySelector("#inputTwo");
 let moveOneDiv = document.querySelector("#inputThree");
@@ -54,9 +56,6 @@ let getReq = () => {
     axios.get("http://localhost:8999/pokemon/getAll")
         .then((response) => {
             displayResults(response.data);
-  
-            getAll();
-            
             
         } )
         .catch((error) => {
@@ -65,7 +64,7 @@ let getReq = () => {
     }
 
 let getIdReq = (getById) => {
-    axios.get(`http://localhost:8999/pokemon/getById/${id.value}`)
+    axios.get(`http://localhost:8999/pokemon/getById/${idDiv.value}`)
     .then((response) => {
         id="";
         name="";
@@ -80,8 +79,15 @@ let getIdReq = (getById) => {
 }
 
 let updReq = () => {
-    axios.get(`http://localhost:8999/pokemon/getById/${id}`)
-    axios.put(`http://localhost:8999/pokemon/update/${id}`)
+    let obj = {
+        "id":parseInt(inputZero.value),
+        "name":inputOne.value,
+        "type":inputTwo.value,
+        "moveOne":inputThree.value,
+        "moveTwo":inputFour.value
+    }
+
+    axios.put(`http://localhost:8999/pokemon/update/${idDiv.value}`, obj)
         .then((response) => {
             displayResults(response);
             getReq();
@@ -90,9 +96,10 @@ let updReq = () => {
         })
 }
 let delReq = () => {
-    axios.delete(`http://localhost:8999/pokemon/delete/${id}`)
+    
+    axios.delete(`http://localhost:8999/pokemon/delete/${idDiv.value}`)
         .then((response) => {
-            
+            displayResults(response);
             getReq();
         } )
         .catch((error) => {
@@ -107,6 +114,7 @@ let displayResults = (data) => {
     for (let entry of data) {
         const p = document.createElement("p");
         const text = document.createTextNode(`${entry.id} | Name: ${entry.name} | Type: ${entry.type} | Move One: ${entry.moveOne} | Move Two: ${entry.moveTwo}`);
+        
 
         p.appendChild(text)
         resultsDiv.appendChild(p);

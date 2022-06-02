@@ -14,7 +14,7 @@ import com.qa.hwaproject.domain.Pokemon;
 public interface PokemonRepo extends JpaRepository<Pokemon, Long> {
 
 	
-	Optional<Pokemon> findById(Long id);
+	Optional<Pokemon> findById(long id);
 	
 	//SELECT * FROM pokemon WHERE type =?
 	List<Pokemon> findByType(String type);

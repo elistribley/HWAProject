@@ -37,10 +37,11 @@ body {
     width: 295px;
 }
 
-#intro{
+#introDiv{
     border: 2px solid darkred;
     align-self: left;
     padding-bottom: 20vw;
+    margin-top: -5vw;
     margin-right: 80vw;
     border-width: 0.3vw;
     border-radius: 10px;
@@ -51,7 +52,7 @@ body {
     border: 2px solid darkred;
     border-width: 0.3vw;
     padding: 150px;
-    margin-top: -20vw;
+    margin-top: -15vw;
     margin-left: 24vw;
     margin-right: 24vw;
     height: fit-content;
@@ -117,3 +118,4 @@ img{
     float: right !important;
     text-align: center !important;
 }
+

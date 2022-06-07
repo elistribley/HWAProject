@@ -37,6 +37,7 @@ public class PokemonControllerIntegrationTest {
 	@Autowired
 	private ObjectMapper mapper;
 	
+	//CREATE TEST
 	
 	@Test
 	public void createTest() throws Exception {
@@ -53,6 +54,9 @@ public class PokemonControllerIntegrationTest {
 				.andExpect(content().json(outputAsJSON));
 		
 	}
+	
+	//READ TESTS
+	
 	@Test
 	public void getAllTest() throws Exception {
 		Pokemon pokemon = new Pokemon(1L,"Butterfree", "Bug", "Confusion", "Tackle");
@@ -139,6 +143,7 @@ public class PokemonControllerIntegrationTest {
 			.andExpect(content().json(entryAsJSON));
 	}
 	
+	//UPDATE TESTS
 	
 	@Test
 	public void updateTest() throws Exception {
@@ -155,8 +160,11 @@ public class PokemonControllerIntegrationTest {
 			.andExpect(content().json(resultAsJSON));
 	}
 	
-	@Test
+	//DELETE TEST, THE METHOD WORKS BUT COULDN'T GET THE TEST TO WORK
+	
 	@Disabled
+	@Test
+	
 	public void deleteTest() throws Exception {
 		
 		mvc.perform(delete("/pokemon/delete/2")

@@ -46,7 +46,7 @@ public class Pokemon {
 	//@Column(name="img", nullable = true)
 	//private String url = "";
 	
-	//CONSTRUCTORS USED TO INSTANTIATE VARIBLES
+	//CONSTRUCTORS
 	
 	public Pokemon(long id, String name, String type, String moveOne, String moveTwo) {
 		super();
@@ -70,7 +70,7 @@ public class Pokemon {
 		super();
 	}
 	
-
+	//GETTERS AND SETTERS
 
 	public long getId() {
 		return id;
@@ -111,6 +111,8 @@ public class Pokemon {
 	public void setMoveTwo(String moveTwo) {
 		this.moveTwo = moveTwo;
 	}
+	
+	//HASHCODE AND EQUALS TO
 
 	@Override
 	public int hashCode() {

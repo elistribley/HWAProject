@@ -35,6 +35,7 @@ public class PokemonControllerUnitTest {
 	@MockBean
 	private PokemonService service;
 	
+	//CREATE TESTS
 	
 	@Test
 	void createTest() throws Exception {
@@ -50,6 +51,7 @@ public class PokemonControllerUnitTest {
 			.andExpect(content().json(entryAsJSON));
 	}
 
+	//READ TESTS
 	@Test
 	public void getAllTest() throws Exception {
 		Pokemon entry = new Pokemon(2L, "Butterfree", "Bug", "Confusion", "Tackle");
@@ -78,6 +80,7 @@ public class PokemonControllerUnitTest {
 			.andExpect(content().json(entryAsJSON));
 	}
 	
+	//UPDATE TEST
 	@Test
 	public void updateTest() throws Exception {
 		Pokemon entry = new Pokemon("Butterfree", "Flying", "Confusion", "Tackle");
@@ -92,7 +95,7 @@ public class PokemonControllerUnitTest {
 			.andExpect(content().json(entryAsJSON));
 	}
 	
-
+	//DELETE TESTS
 	
 	@Test
 	public void deleteFailTest() throws Exception {
@@ -103,4 +106,15 @@ public class PokemonControllerUnitTest {
 			.andExpect(status().isNotFound());
 	}
 	
+
+
+	@Test
+	public void deletePassTest() throws Exception {
+		Mockito.when(service.delete(1L)).thenReturn(true);
+	
+		mvc.perform(delete("/pokemon/delete/1")
+			.contentType(MediaType.APPLICATION_JSON))
+			.andExpect(status().isNoContent());
+}
+
 }

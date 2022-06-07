@@ -40,7 +40,7 @@ body {
 #introDiv{
     border: 2px solid darkred;
     align-self: left;
-    padding-bottom: 10vw;
+    padding-bottom: 9vw;
     margin-top: -5vw;
     margin-right: 78vw;
     border-width: 0.3vw;
@@ -53,7 +53,7 @@ body {
     border: 2px solid darkred;
     border-width: 0.3vw;
     padding: 150px;
-    margin-top: -15vw;
+    margin-top: -5vw;
     margin-left: 24vw;
     margin-right: 24vw;
     height: fit-content;
@@ -135,4 +135,8 @@ img{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 5%;
+}
+
+#fourStarters{
+    margin-top: 0.5vw;
 }

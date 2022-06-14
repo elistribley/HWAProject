@@ -3,7 +3,13 @@
 For my second project for QA training course I had to create an entity within MySQL using Java for creation and setting purposes and using HTML to statically serve up information and show our skills using HTML, CSS and JS in order to combine the two.
 
 ## Getting Started
-All my code has been put into a fatJar so you only need to open the file up when downloaded.
+If you would like to create an empty folder on your desktop, right click inside and click GitBash, this will open up a terminal and you can enter the following commands:
+
+git init
+git clone https://github.com/elistribley/HWAProject
+code .
+
+This will initialise the folder into a repo, clone down my project and open up all code inside. All my code has been put into a fatJar so you want would like to alternatively do that.
 
 ## Prerequisites
 You will need SQL Workbench to visualise the information in my sql-schema and sql-data files which are located within the project inside src/main/resources. You can open up the code in any IDE but with require maven for testing purposes and GitBash for any commands you wish to access.

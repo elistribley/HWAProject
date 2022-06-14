@@ -5,8 +5,8 @@ For my second project for QA training course I had to create an entity within My
 ## Getting Started
 If you would like to create an empty folder on your desktop, right click inside and click GitBash, this will open up a terminal and you can enter the following commands:
 
-git init
-git clone https://github.com/elistribley/HWAProject
+git init <br/>
+git clone https://github.com/elistribley/HWAProject <br/>
 code .
 
 This will initialise the folder into a repo, clone down my project and open up all code inside. All my code has been put into a fatJar so you want would like to alternatively do that.

@@ -3,7 +3,7 @@
 For my second project for QA training course I had to create an entity within MySQL using Java for creation and setting purposes and using HTML to statically serve up information and show our skills using HTML, CSS and JS in order to combine the two.
 
 ## Getting Started
-If you would like to create an empty folder on your desktop, right click inside and click GitBash, this will open up a terminal and you can enter the following commands:
+Fitst of all you will need GitBash and an IDE, I used Visual Studio Code. If you would like to create an empty folder on your desktop, right click inside and click GitBash, this will open up a terminal and you can enter the following commands:
 
 git init <br/>
 git clone https://github.com/elistribley/HWAProject <br/>
